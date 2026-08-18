@@ -2,7 +2,7 @@ import { io } from "socket.io-client";
 import type { GameMessage } from "@/types/game.interface";
 
 class SocketService {
-  socket = io("http://localhost:3000");
+  socket = io(import.meta.env.VITE_API_URL || "http://localhost:3000");
 
   createRoom(username: string) {
     this.socket.emit("create_room", username);
