@@ -259,7 +259,7 @@ export default function RoomPage() {
     setMySecret(secret);
     socketService.submitSecret(secret, roomCode);
   };
-
+  document.title = "Sequence";
   return (
     <main className="relative min-h-screen w-full overflow-hidden bg-zinc-950 text-zinc-50">
       {/* Username prompt overlay for direct-link joins */}
@@ -330,13 +330,12 @@ export default function RoomPage() {
                 <div className="flex w-full items-center justify-center">
                   <div className="flex items-center gap-3 rounded-full border border-zinc-800/40 bg-zinc-950/40 px-5 py-3 text-sm font-medium">
                     <div
-                      className={`h-2.5 w-2.5 shrink-0 rounded-full ${
-                        opponentPresent
+                      className={`h-2.5 w-2.5 shrink-0 rounded-full ${opponentPresent
                           ? opponentReady
                             ? "bg-green-400"
                             : "animate-pulse bg-amber-400"
                           : "bg-zinc-600"
-                      }`}
+                        }`}
                     />
 
                     <span

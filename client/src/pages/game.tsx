@@ -85,7 +85,7 @@ interface GuessPanelProps {
   accentColor: string;
   scrollRef: React.RefObject<HTMLDivElement | null>;
 }
-
+document.title = "Sequence";
 function GuessPanel({
   title,
   subtitle,
