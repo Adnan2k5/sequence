@@ -11,14 +11,16 @@ const PORT = process.env.PORT || 3000;
 const httpServer = createServer(app);
 const io = new Server(httpServer, {
   cors: {
-    origin: "*",
+    origin: process.env.CLIENT_URL || "*",
   },
 });
 
 //Socket.io
 initSocket(io);
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: process.env.CLIENT_URL || "*",
+}));
 app.use(bodyParser.json());
 app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: true }));
