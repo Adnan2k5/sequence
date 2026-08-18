@@ -19,5 +19,16 @@ export const gameSocket = (io: Server, socket: Socket) => {
                 socket.emit("game_error", error.message);
         }
     })
+    socket.on("play_again", async (roomId: string) => {
+        try {
+            const updatedRoom = await RoomService.resetPlayer(roomId);
+            const cleanRoom = RoomService.getCleanRoom(updatedRoom);
+            io.to(roomId).emit("room_updated", cleanRoom);
+        }
+        catch (error) {
+            if (error instanceof Error)
+                socket.emit("game_error", error.message);
+        }
+    })
 
 }

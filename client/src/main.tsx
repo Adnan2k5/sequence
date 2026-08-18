@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./index.css";
 import App from "./App.tsx";
 import Room from "./pages/room.tsx";
+import Game from "./pages/game.tsx";
 import { Toaster } from "sonner";
 
 createRoot(document.getElementById("root")!).render(
@@ -13,6 +14,7 @@ createRoot(document.getElementById("root")!).render(
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/room" element={<Room />} />
+        <Route path="/game" element={<Game />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>,

@@ -43,6 +43,20 @@ class roomService {
   async getRoom(roomId: string) {
     return this.rooms.get(roomId);
   }
+  async resetPlayer(roomId: string) {
+    const room = this.rooms.get(roomId);
+    if (!room) {
+      throw new Error("ROOM_NOT_FOUND")
+    }
+    room.players = room.players.map((player) => {
+      return {
+        ...player,
+        secret: undefined,
+        ready: false,
+      }
+    })
+    return room;
+  }
   async updatePlayerReady({ roomId, socketId, secret }: {
     roomId: string
     socketId: string
