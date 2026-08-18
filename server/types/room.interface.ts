@@ -1,4 +1,4 @@
-import { Player } from "./player.interface.ts";
+import { Player } from "./player.interface.js";
 export interface Room {
   id: string;
   ownerId: string;

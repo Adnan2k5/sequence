@@ -1,5 +1,5 @@
 import { Server, Socket } from "socket.io";
-import { RoomService } from "../services/room.service.ts";
+import { RoomService } from "../services/room.service.js";
 
 export const roomSocket = (io: Server, socket: Socket) => {
   socket.on("create_room", async (username: string) => {

@@ -4,7 +4,7 @@ import cors from "cors";
 import morgan from "morgan";
 import { createServer } from "http";
 import { Server } from "socket.io";
-import { initSocket } from "./socket";
+import { initSocket } from "./socket/index.js";
 
 const app = express();
 const PORT = process.env.PORT || 3000;

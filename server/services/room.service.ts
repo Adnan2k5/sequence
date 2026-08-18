@@ -1,4 +1,4 @@
-import { Room } from "../types/room.interface.ts";
+import { Room } from "../types/room.interface.js";
 class roomService {
   private rooms = new Map<string, Room>();
   async create({ socketId, username }: { socketId: string; username: string }) {
