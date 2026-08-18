@@ -2,8 +2,8 @@ import { io } from "socket.io-client";
 
 class SocketService {
   socket = io("http://localhost:3000");
-  createRoom() {
-    this.socket.emit("create_room");
+  createRoom(username: string) {
+    this.socket.emit("create_room", username);
   }
   leaveRoom() {
     this.socket.emit("leave_room");
@@ -17,8 +17,17 @@ class SocketService {
   listen(event: string, callback: (data: any) => void) {
     this.socket.on(event, callback);
   }
-  stopListening(event: string) {
+  off(event: string) {
     this.socket.off(event);
+  }
+  getId() {
+    return this.socket.id;
+  }
+  getRoom(roomId: string) {
+    this.socket.emit("get_room", roomId);
+  }
+  submitSecret(secret: string, roomId: string) {
+    this.socket.emit("submit_secret", secret, roomId);
   }
 }
 
